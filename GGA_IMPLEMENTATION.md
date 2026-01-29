@@ -39,7 +39,7 @@ SafeConnection.initAuth()
 
 // Upload call logs to GGA
 suspend fun uploadCallLogs(callLogs: List<CallLog>) {
-    when (val result = SafeConnection.uploadCallLogsToGga(callLogs)) {
+    when (val result = SafeConnection.gga.uploadCallLogsToGga(callLogs)) {
         is GgaUploadResult.Success -> {
             Logger.i("Uploaded ${result.response.processedCount} call logs")
         }
