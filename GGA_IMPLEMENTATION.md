@@ -51,6 +51,17 @@ suspend fun uploadCallLogs(callLogs: List<CallLog>) {
         }
     }
 }
+
+data class CallLog(
+    val id: Long, // android call log raw id
+    val number: String,
+    val type: CallType, // INCOMING, OUTGOING, MISSED, VOICEMAIL, REJECTED, BLOCKED, ANSWERED_EXTERNALLY, UNKNOWN
+    val date: Long,
+    val duration: Long,
+    val region: String, // country
+    val nrsName: String, // number search result name of NumberInfo
+    val isNew: Boolean,
+)
 ```
 
 The implementation is ready for production use and can be extended to support additional GGA functionality as requirements evolve.
